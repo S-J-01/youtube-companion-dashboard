@@ -1,5 +1,5 @@
 {
-  "name": "my-turborepo",
+  "name": "youtube-companion-dashboard",
   "private": true,
   "scripts": {
     "build": "turbo run build",
