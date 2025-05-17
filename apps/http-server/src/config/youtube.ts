@@ -1,30 +1,29 @@
-import { OAuth2Client } from 'google-auth-library';
-import dotenv from 'dotenv';
+import { OAuth2Client } from 'google-auth-library'
+import dotenv from 'dotenv'
 
-dotenv.config();
+dotenv.config()
 
-// Validate environment variables
+
 if (!process.env.YOUTUBE_CLIENT_ID) {
-  throw new Error('YOUTUBE_CLIENT_ID is not defined in environment variables');
+  throw new Error('YOUTUBE_CLIENT_ID is not defined in environment variables')
 }
 
 if (!process.env.YOUTUBE_CLIENT_SECRET) {
-  throw new Error('YOUTUBE_CLIENT_SECRET is not defined in environment variables');
+  throw new Error('YOUTUBE_CLIENT_SECRET is not defined in environment variables')
 }
 
 if (!process.env.YOUTUBE_REDIRECT_URI) {
-  throw new Error('YOUTUBE_REDIRECT_URI is not defined in environment variables');
+  throw new Error('YOUTUBE_REDIRECT_URI is not defined in environment variables')
 }
 
-// Create OAuth2 client
 export const oauth2Client = new OAuth2Client(
   process.env.YOUTUBE_CLIENT_ID,
   process.env.YOUTUBE_CLIENT_SECRET,
   process.env.YOUTUBE_REDIRECT_URI
 );
 
-// Define required YouTube API scopes
+
 export const SCOPES = [
   'https://www.googleapis.com/auth/youtube.readonly',
   'https://www.googleapis.com/auth/youtube.force-ssl'
-];
+]
