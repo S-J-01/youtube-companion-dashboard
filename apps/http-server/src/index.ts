@@ -3,21 +3,26 @@ import dotenv from 'dotenv'
 import { prisma } from '@repo/db/client' 
 import { logger } from './utils/logger'
 import { requestLogger } from './middleware/requestLogger'
+import authRoutes from './routes/auth'
+import videoRoutes from './routes/videoRoutes'
 
 
 dotenv.config()
 
-const app: Express = express()
-const port = 3001
+const app = express()
+const port = 8080
 
 
 app.use(requestLogger)
 
 app.use(express.json())
 
+app.use('/auth', authRoutes)
+
+app.use('/api/video', videoRoutes)
 
 app.get('/', (req: Request, res: Response) => {
-  res.json({message:'YouTube Companion Dashboard main route'})
+  res.json({message:'YouTube Companion Dashboard landing page'})
 })
 
 
