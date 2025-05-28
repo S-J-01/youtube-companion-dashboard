@@ -24,6 +24,6 @@ export const oauth2Client = new OAuth2Client(
 
 
 export const SCOPES = [
-  'https://www.googleapis.com/auth/youtube.readonly',
+  'https://www.googleapis.com/auth/youtube',
   'https://www.googleapis.com/auth/youtube.force-ssl'
-]
+];
